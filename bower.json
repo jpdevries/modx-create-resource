@@ -1,0 +1,36 @@
+{
+  "name": "template-picker",
+  "description": "",
+  "main": "gruntfile.js",
+  "authors": [
+    "JP de Vries <mail@devries.jp>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bourbon": "^4.3.4",
+    "neat": "^2.0.0",
+    "spectacular": "*"
+  },
+  "dependencies": {
+    "html5-boilerplate": "^5.3.0"
+  },
+  "exportsOverride": {
+    "bourbon": {
+      "": "app/assets/stylesheets/"
+    },
+    "neat": {
+      "": "core/neat"
+    },
+    "spectacular": {
+      "": "app/assets/stylesheets/"
+    }
+  }
+}

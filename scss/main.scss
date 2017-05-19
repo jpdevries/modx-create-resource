@@ -1,0 +1,168 @@
+@import "spec/tacular";
+
+@import "html5-boilerplate/normalize";
+//@import "html5-boilerplate/main";
+
+label {
+  display: block;
+}
+
+h1 {
+  margin: 0 auto;
+  @extend %panel;
+}
+
+%greedy {
+  width: 100%;
+}
+
+%clickable {
+  cursor: pointer;
+}
+
+ul {
+  margin: 0;
+  padding: 0 0 0 1.5em;
+}
+
+.panel.classkey {
+  text-align: right;
+}
+
+li {
+  
+}
+
+#template-tree {
+  ul {
+    list-style-type: none;
+  }
+}
+
+.flexible {
+ display: flex; 
+}
+
+.visually-hidden {
+  @extend %visually-hidden;
+}
+
+%panel {
+  padding: 1rem;
+}
+
+.panel {
+  @extend %panel;
+}
+
+h1 {
+  @extend %panel;
+}
+
+.template-container {
+  label {
+    &:not(:only-child) {
+      margin-bottom: 1rem;
+    }
+  }
+  .template-chooser {
+    [data-template-preview="false"] & {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  .template-column {
+    //@extend %panel;
+    margin-right: 1rem;
+    flex-grow: 0;
+    [data-template-preview="false"] & {
+      flex-grow: 2;
+    }
+    details {
+      &:not(:first-child) {
+        margin-top: 1rem;
+      }
+      [data-template-preview="false"] & {
+        margin-top: 1rem;
+        padding-left: .5rem;
+        padding-right: .5rem;
+      }
+    }
+    fieldset {
+      margin-top: 1rem;
+      padding-top: 1rem;
+    }
+  }
+  aside {
+    text-align: right;
+    [data-template-preview="true"] & {
+      flex-grow: 1;
+    }
+  }
+  iframe {
+    width: 100%;
+    min-height: 50vh;
+    display: none;
+    border: 1px solid #c0c0c0;
+    [data-template-preview="true"] & {
+      display: block;
+    }
+  }
+}
+
+label[for="preview-template"] {
+  display: inline-block;
+}
+
+iframe {
+  
+}
+
+summary {
+  span {
+    color: var(--light-color, rgb(120, 120, 120));
+  }
+}
+
+#template-tree {
+  li {
+    > span {
+      @extend %clickable;
+    }
+  }
+}
+
+#pagetitle, #weblink {
+  @extend %greedy;
+}
+
+.classkey {
+  margin-left: auto;
+  transform: translateY(.5em);
+  text-align: right;
+}
+
+fieldset.take-me {
+  padding: .5rem;
+  label {
+    display: inline-block;
+    margin-right: 1em;
+    margin-bottom: 0;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+button[disabled] {
+  color: var(--light-color, rgb(120, 120, 120));
+}
+
+footer {
+  @extend %panel;
+  button {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
