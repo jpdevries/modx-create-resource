@@ -25,6 +25,47 @@
             <label for="pagetitle">Title</label>
             <input required type="text" id="pagetitle" name="pagetitle" placeholder="Ik hou van MODX" />
           </div>
+          <div class="panel">
+            <label for="pagetitle">Parent</label>
+            <details open>
+              <summary>Find parent by</summary>
+              <fieldset id="parent-find-by">
+                <legend class="visually-hidden">Find parent by</legend>
+                <label for="parent-search">
+                  <input checked type="radio" id="parent-search" name="parent-select-search" value="search">&ensp;Search
+                </label>
+                <label for="parent-select">
+                  <input type="radio" id="parent-select" name="parent-select-search" value="select">&ensp;Select
+                </label>
+              </fieldset>
+            </details>
+            <div id="parent-search-wrapper" data-parent-find-by="search">
+              <input data-invalid="true" required type="text" id="parent-input" name="parent-input" placeholder="Blog" list="parent-list" />
+              <p class="error message">
+                <small class="dangeorus">Please choose a valid parent</small>
+              </p>
+              <datalist id="parent-list">
+                <select name="parent-list-select" id="parent-list-select">
+                  <optgroup label="web">
+                    <option data-parent="0" value="Website (0)">web: /</option>
+                    <option data-parent="2" value="Blog (2)">blog.mysite.com</option>
+                    <option data-parent="3" value="Shirts (3)">/nl/shirts</option>
+                  </optgroup>
+                </select>
+              </datalist>
+            </div>
+            <select hidden name="parent" id="parent" data-parent-find-by="select">
+              <optgroup label="web">
+                <option value="0">Root (0)</option>
+                <option value="2">Blog (2)</option>
+                <option value="3">Products (3)</option>
+                <option value="4">– Shirts (4)</option>
+                <option value="5">–– Hats (5)</option>
+              </optgroup>
+            </select>
+            
+            
+          </div>
           <div hidden class="panel" data-dependent="modWeblink" data-exempt="modResource modSymblink moreGallery">
             <label for="pagetitle">Weblink</label>
             <input type="text" id="weblink" name="weblink" list="weblink-list" placeholder="[[~1]]" />

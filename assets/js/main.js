@@ -50,6 +50,41 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   }
   
+  document.getElementById('parent-find-by').addEventListener('change', (event) => {
+    const dataFindBys = document.querySelectorAll('[data-parent-find-by]');
+    for(let i = 0; i < dataFindBys.length; i++) dataFindBys[i].setAttribute('hidden', true);
+    document.querySelector(`[data-parent-find-by="${event.target.value}"]`).removeAttribute('hidden');
+  });
+  
+  function handleParentChange(event) {
+    console.log(event.target.value);
+    
+    const listAttr = event.target.getAttribute('list');
+    if(listAttr) {
+      const list = document.getElementById(listAttr);
+      if(list) {
+        const options = list.querySelectorAll('option');
+        const validOption = (() => {
+          for(let i = 0; i < options.length; i++) {
+            const option = options[i];
+            if(option.getAttribute('value') === event.target.value) {
+              return option;
+            }
+          }
+          return false;
+        })();
+        if(validOption) {
+          console.log(validOption, validOption.dataset.parent);
+          document.getElementById('parent').value = validOption.dataset.parent;
+        }
+        
+      }
+    }
+  }
+  
+  document.getElementById('parent-input').addEventListener('change', handleParentChange);
+  document.getElementById('parent-input').addEventListener('input', handleParentChange);
+  
   document.getElementById('pagetitle').addEventListener('change', handlePageTitleChange);
   document.getElementById('pagetitle').addEventListener('input', handlePageTitleChange);
 })

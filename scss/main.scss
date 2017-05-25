@@ -7,9 +7,33 @@ label {
   display: block;
 }
 
+fieldset {
+  label:not(:last-child) {
+    margin-bottom: 1em;
+    
+  }
+}
+
 h1 {
   margin: 0 auto;
   @extend %panel;
+}
+
+input {
+  border: 1px solid rgb(60, 60, 60);
+}
+
+p.error.message {
+  margin: 0;
+  color: var(--dangerous, red);
+}
+
+[data-invalid] {
+  border-color: red;
+}
+
+#parent, #parent-input {
+  margin-top: 1em;
 }
 
 %greedy {
