@@ -10,6 +10,7 @@ This concept originated at the [MODX Malta Meetup](https://github.com/Sterc/modx
  - Make experience more end user friendly
  - Accessibiilty
  - Usability
+ - Plain language
  
  ## Features
   - Set Resource Title
