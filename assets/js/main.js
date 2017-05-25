@@ -6,19 +6,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
       document.body.dataset.templatePreview = 'false';
     }
   });
-  
+
   document.querySelector('.template-chooser').addEventListener('change', (event) => {
     document.querySelector('iframe').setAttribute('src', event.target.getAttribute('data-preview'));
   });
-  
+
   document.getElementById('classkey').addEventListener('change', (event) => {
     console.log(event.target.value);
     const deps = document.querySelectorAll(`[data-dependent*=${event.target.value}]`);
     const allExempts = document.querySelectorAll(`[data-exempt]`);
     const exempts = document.querySelectorAll(`[data-exempt*=${event.target.value}]`);
-    
+
     console.log('exempts', exempts);
-    
+
     for(let i = 0; i < allExempts.length; i++) {
       const exempt = allExempts[i];
       exempt.removeAttribute('hidden');
@@ -28,37 +28,37 @@ document.addEventListener('DOMContentLoaded', (event) => {
       const dep = deps[i];
       dep.removeAttribute('hidden');
     }
-    
-    
+
+
     console.log(exempts);
     for(let i = 0; i < exempts.length; i++) {
       const exempt = exempts[i];
       exempt.setAttribute('hidden', 'true');
     }
   });
-  
+
   function handlePageTitleChange(event) {
     if(event.target.value) {
       document.getElementById('choose-template').removeAttribute('disabled');
     } else {
       document.getElementById('choose-template').setAttribute('disabled', 'true');
     }
-    const deps = document.querySelectorAll('[data-bind="pagetitle"]'); 
+    const deps = document.querySelectorAll('[data-bind="pagetitle"]');
     for(let i = 0; i < deps.length; i++) {
       const dep = deps[i];
-      dep.innerHTML = event.target.value || dep.dataset.default || '';
+      dep.innerHTML = (dep.dataset.prepend || '') + (event.target.value || dep.dataset.default || '');
     }
   }
-  
+
   document.getElementById('parent-find-by').addEventListener('change', (event) => {
     const dataFindBys = document.querySelectorAll('[data-parent-find-by]');
     for(let i = 0; i < dataFindBys.length; i++) dataFindBys[i].setAttribute('hidden', true);
     document.querySelector(`[data-parent-find-by="${event.target.value}"]`).removeAttribute('hidden');
   });
-  
+
   function handleParentChange(event) {
     console.log(event.target.value);
-    
+
     const listAttr = event.target.getAttribute('list');
     if(listAttr) {
       const list = document.getElementById(listAttr);
@@ -77,14 +77,63 @@ document.addEventListener('DOMContentLoaded', (event) => {
           console.log(validOption, validOption.dataset.parent);
           document.getElementById('parent').value = validOption.dataset.parent;
         }
-        
+
       }
     }
   }
-  
+
   document.getElementById('parent-input').addEventListener('change', handleParentChange);
   document.getElementById('parent-input').addEventListener('input', handleParentChange);
-  
+
+  document.getElementById('parent').addEventListener('change', (event) => {
+    document.getElementById('parent-input').value = document.getElementById('parent-list').querySelector(`[data-parent="${event.target.value}"]`).getAttribute('value');
+  });
+
   document.getElementById('pagetitle').addEventListener('change', handlePageTitleChange);
   document.getElementById('pagetitle').addEventListener('input', handlePageTitleChange);
+
+  document.getElementById('fullscreen-preview').addEventListener('change', (event) => {
+    if(event.target.checked) launchIntoFullscreen(document.getElementById('stage'));
+    else exitFullscreen();
+  });
+
+  function handleFullScreenChange(event) {
+    const fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement,
+    isFullscreen = fullscreenElement ? true : false;
+
+    document.getElementById('fullscreen-preview').checked = isFullscreen;
+
+    if(isFullscreen) {
+
+    } else {
+
+    }
+  }
+
+  ['webkitfullscreenchange', 'mozfullscreenchange', 'fullscreenchange', 'MSFullscreenChange'].forEach((handler) => (
+    document.addEventListener(handler, handleFullScreenChange)
+  ));
+
+  function launchIntoFullscreen(element) {
+    if(element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if(element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if(element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen();
+    } else if(element.msRequestFullscreen) {
+      element.msRequestFullscreen();
+    }
+  }
+
+  function exitFullscreen() {
+    if(document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if(document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if(document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+  }
+
 })

@@ -20,51 +20,68 @@
         <![endif]-->
 
         <h1 aria-label="Quickly create a new resource" aria-describedby="pagetitle classkey" data-bind="pagetitle" data-default="New Resource">New Resource</h1>
-        <div>
-          <div class="panel">
-            <label for="pagetitle">Title</label>
-            <input required type="text" id="pagetitle" name="pagetitle" placeholder="Ik hou van MODX" />
-          </div>
-          <div class="panel">
-            <label for="pagetitle">Parent</label>
-            <details open>
-              <summary>Find parent by</summary>
-              <fieldset id="parent-find-by">
-                <legend class="visually-hidden">Find parent by</legend>
-                <label for="parent-search">
-                  <input checked type="radio" id="parent-search" name="parent-select-search" value="search">&ensp;Search
-                </label>
-                <label for="parent-select">
-                  <input type="radio" id="parent-select" name="parent-select-search" value="select">&ensp;Select
-                </label>
-              </fieldset>
-            </details>
-            <div id="parent-search-wrapper" data-parent-find-by="search">
-              <input data-invalid="true" required type="text" id="parent-input" name="parent-input" placeholder="Blog" list="parent-list" />
-              <p class="error message">
-                <small class="dangeorus">Please choose a valid parent</small>
-              </p>
-              <datalist id="parent-list">
-                <select name="parent-list-select" id="parent-list-select">
-                  <optgroup label="web">
-                    <option data-parent="0" value="Website (0)">web: /</option>
-                    <option data-parent="2" value="Blog (2)">blog.mysite.com</option>
-                    <option data-parent="3" value="Shirts (3)">/nl/shirts</option>
-                  </optgroup>
-                </select>
-              </datalist>
+        <main role="main">
+          <div class="flexible">
+            <div class="greedy pagetitle panel">
+              <label for="pagetitle">Title</label>
+              <input required type="text" id="pagetitle" name="pagetitle" placeholder="Ik hou van MODX" autocomplete="off" />
             </div>
-            <select hidden name="parent" id="parent" data-parent-find-by="select">
-              <optgroup label="web">
-                <option value="0">Root (0)</option>
-                <option value="2">Blog (2)</option>
-                <option value="3">Products (3)</option>
-                <option value="4">– Shirts (4)</option>
-                <option value="5">–– Hats (5)</option>
-              </optgroup>
-            </select>
-            
-            
+            <div class="parent panel">
+              <label for="pagetitle">Parent</label>
+              <div class="flexible pagetitle-wrapper">
+                <details open class="find-parent-by">
+                  <summary>Choose parent by</summary>
+                  <fieldset id="parent-find-by">
+                    <legend class="visually-hidden">Choose parent by</legend>
+                    <div>
+                      <label for="parent-search">
+                        <input checked type="radio" id="parent-search" name="parent-select-search" value="search">&ensp;Search
+                      </label>
+                      <label for="parent-select">
+                        <input type="radio" id="parent-select" name="parent-select-search" value="select">&ensp;Select
+                      </label>
+                    </div>
+                  </fieldset>
+                </details>
+                <div id="parent-search-wrapper" data-parent-find-by="search">
+                  <input required type="text" id="parent-input" name="parent-input" placeholder="Blog" list="parent-list" />
+                  <p hidden class="error message">
+                    <small class="dangerous">Please choose a valid parent</small>
+                  </p>
+                  <datalist id="parent-list">
+                    <select hidden name="parent-list-select" id="parent-list-select">
+                      <optgroup label="web">
+                        <option data-parent="0" value="Website (0)">/</option>
+                        <option data-parent="2" value="Blog (2)">/blog</option>
+                      </optgroup>
+                      <optgroup label="shop">
+                        <option data-parent="3" value="Shop (3)">shop.mysite.com</option>
+
+                        <option data-parent="4" value="Shirts (4)">shop.mysite.com/shirts</option>
+                        <option data-parent="5" value="Hats (5)">shop.mysite.com/hats</option>
+                      </optgroup>
+                    </select>
+                  </datalist>
+                </div>
+                <div id="select-parent-wrapper" hidden data-parent-find-by="select">
+                  <select name="parent" id="parent">
+                    <optgroup label="web">
+                      <option value="0">Website (0)</option>
+                      <option value="2">Blog (2)</option>
+                    </optgroup>
+                    <optgroup label="shop">
+                      <option value="3">Shop (3)</option>
+                      <option value="4">– Shirts (4)</option>
+                      <option value="5">–– Hats (5)</option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="will-create panel">
+            <p class="balanced subtle oblique"><small>New resource ‘Ik hou van MODX” will be created using the <a href="#">Base Template</a> within the <a href="#">shop context</a> and be hosted at <code>shop.mysite.com/hats</code></small></p>
           </div>
           <div hidden class="panel" data-dependent="modWeblink" data-exempt="modResource modSymblink moreGallery">
             <label for="pagetitle">Weblink</label>
@@ -80,11 +97,11 @@
               </select>
             </datalist>
           </div>
-          <div class="panel" data-exempt="modWeblink">
+          <div class="template panel" data-exempt="modWeblink">
             <div class="flexible template-container">
               <div class="template-column">
                 <label for="template">Choose a Template</label>
-                
+
                 <div class="template-chooser">
                   <details open>
                     <summary>Uncategorized</summary>
@@ -103,7 +120,7 @@
                         <label for="template-post"><input type="radio" name="template" id="template-post" data-preview="https://modx.com/blog/evolution-cms-has-a-new-home">&ensp;Post</label>
                         <label for="template-category"><input type="radio" name="template" id="template-category" data-preview="https://modx.com/blog/">&ensp;Category</label>
                       </div>
-                      
+
                       <details>
                         <summary>Feed</summary>
                         <fieldset>
@@ -116,9 +133,9 @@
                     </fieldset>
                   </details>
                 </div>
-                
-                
-                
+
+
+
                 <select hidden name="choose_template" id="choose_template">
                   <optgroup label="Blog">
                     <option value="post">Category</option>
@@ -126,7 +143,7 @@
                   </optgroup>
                 </select>
 
-                
+
                 <!--nav hidden id="template-tree" class="template-chooser">
                   <details>
                     <summary><span>Blog</span></summary>
@@ -154,11 +171,14 @@
                       </li>
                     </ul>
                   </details>
-                </nav-->  
+                </nav-->
               </div>
-              <aside class="stage">
-                <label for="preview-template"><input type="checkbox" checked id="preview-template" name="preview-template"> Template Preview</label>
-                <iframe hidden id="template-preview" src="https://modx.com/" frameborder="0">
+              <aside id="stage">
+                <div class="flexible preview-options">
+                  <label for="preview-template"><input type="checkbox" checked id="preview-template" name="preview-template"> Template Preview</label>
+                  <label for="fullscreen-preview"><input type="checkbox" id="fullscreen-preview" name="fullscreen-preview"> Fullscreen Preview</label>
+                </div>
+                <iframe aria-hidden="true" hidden id="template-preview" src="https://modx.com/" frameborder="0">
                 </iframe>
               </aside>
             </div>
@@ -169,7 +189,7 @@
               <div>
                 <label for="take-me-to-edit">
                   <input checked type="radio" id="take-me-to-edit" name="take-me-to">&ensp;
-                  Edit <span aria-hidden="true" style="text-transform: capitalize">this </span><span class="visually-hidden" data-bind="pagetitle"><span class="visually-hidden"> further</span></span>
+                  Edit <span aria-hidden="true" style="text-transform: capitalize">this </span><span class="visually-hidden" data-bind="pagetitle"><span class="visually-hidden"> Resource</span></span>
                 </label>
                 <label for="take-me-to-create">
                   <input type="radio" id="take-me-to-create" name="take-me-to">&ensp;
@@ -178,7 +198,7 @@
               </div>
             </fieldset>
             <div class="classkey">
-              <label for="">Document Type</label>
+              <label for="classkey">Document Type</label>
               <select name="classkey" id="classkey">
                 <option value="modResource">modResource</option>
                 <option value="modWeblink">modWeblink</option>
@@ -188,10 +208,10 @@
             </div>
           </div>
           <footer>
-          <button id="choose-template" disabled aria-describedby="pagetitle">Create Resource<!--span data-bind="pagetitle"></span--></button>
+          <button id="choose-template" disabled aria-describedby="pagetitle">Save Resource<span class="visually-hidden" data-bind="pagetitle" data-prepend=" "></span></button>
           <!--button id="" disabled aria-describedby="pagetitle">Save Resource and Create New</button-->
           </footer>
-        </div>
+        </main>
 
 
         <!--script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>

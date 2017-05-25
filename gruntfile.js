@@ -12,7 +12,7 @@ module.exports = function(grunt) {
       css:'./css/',
       img:'./img/',
       scss:'scss/',
-      lib: 'lib'
+      lib: './lib/'
     },
     bower: {
         install: {
@@ -101,12 +101,6 @@ module.exports = function(grunt) {
       }
     },
     copy: {
-      /*eureka: {
-        files: [{
-          src: '<%= dirs.build %><%= dirs.static %><%= dirs.js %>main.*.js',
-          dest: '<%= dirs.build %><%= dirs.assets %><%= dirs.js %>eureka.<%= pkg.version %>.min.js'
-        }]
-      },*/
       bower: {
         files: [{
             src: 'bourbon/**/*',
@@ -119,17 +113,17 @@ module.exports = function(grunt) {
             dest: '<%= dirs.scss %>',
             expand: true
         }, {
-            src: 'spec/**/*',
-            cwd: '<%= dirs.lib %>spectacular/',
+            src: './**/*',
+            cwd: '<%= dirs.lib %>spectacular',
             dest: '<%= dirs.scss %>',
             expand: true
-        },/*,{
-          src: '<%= dirs.theme %><%= dirs.assets %><%= dirs.img %>icons.svg',
-          dest: '<%= dirs.theme %><%= dirs.assets %><%= dirs.img %>icons.<%= pkg.version %>.svg'
-        }*//*,{
-          src: '<%= dirs.build %><%= dirs.static %><%= dirs.js %>main.*.js',
-          dest: '<%= dirs.build %><%= dirs.assets %><%= dirs.js %>eureka.<%= pkg.version %>.min.js'
-        }*/]
+        }, {
+            src: '<%= dirs.lib %>html5-boilerplate/dist/css/main.css',
+            dest: '<%= dirs.scss %>html5-boilerplate/main.scss'
+        }, {
+            src: '<%= dirs.lib %>html5-boilerplate/dist/css/normalize.css',
+            dest: '<%= dirs.scss %>html5-boilerplate/normalize.scss'
+        }]
       }
     },
     sass:{
@@ -216,7 +210,7 @@ module.exports = function(grunt) {
     },
   });
 
-  
+
 
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks("grunt-modernizr");
