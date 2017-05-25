@@ -1,11 +1,16 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-  document.getElementById('preview-template').addEventListener('change', (event) => {
-    if(event.target.checked) {
-      document.body.dataset.templatePreview = 'true';
-    } else {
-      document.body.dataset.templatePreview = 'false';
-    }
-  });
+  /*try {
+    document.getElementById('preview-template').addEventListener('change', (event) => {
+      if(event.target.checked) {
+        document.body.dataset.templatePreview = 'true';
+      } else {
+        document.body.dataset.templatePreview = 'false';
+      }
+    });
+  } catch (e) {
+
+  }
+  */
 
   document.querySelector('.template-chooser').addEventListener('change', (event) => {
     document.querySelector('iframe').setAttribute('src', event.target.getAttribute('data-preview'));
@@ -92,8 +97,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
   document.getElementById('pagetitle').addEventListener('change', handlePageTitleChange);
   document.getElementById('pagetitle').addEventListener('input', handlePageTitleChange);
 
+  document.getElementById('template-select').addEventListener('change', (event) => {
+    console.log(event.target.value);
+    const input = document.getElementById('template-chooser').querySelector(`[data-template="${event.target.value}"]`);
+    input.checked = true;
+    document.querySelector('iframe').setAttribute('src', input.getAttribute('data-preview'));
+  });
+
   document.getElementById('fullscreen-preview').addEventListener('change', (event) => {
-    if(event.target.checked) launchIntoFullscreen(document.getElementById('stage'));
+    if(event.target.checked) {
+      launchIntoFullscreen(document.getElementById('stage'));
+       setTimeout(() => {
+         document.getElementById('template-select').focus();
+       }, 120);
+    }
     else exitFullscreen();
   });
 

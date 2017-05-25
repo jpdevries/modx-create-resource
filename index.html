@@ -24,7 +24,8 @@
           <div class="flexible">
             <div class="greedy pagetitle panel">
               <label for="pagetitle">Title</label>
-              <input required type="text" id="pagetitle" name="pagetitle" placeholder="Ik hou van MODX" autocomplete="off" />
+              <p hidden id="give-title">Give your new resource a title.</p>
+              <input autofocus aria-describedby="give-title" required type="text" id="pagetitle" name="pagetitle" placeholder="Ik hou van MODX" autocomplete="off" />
             </div>
             <div class="parent panel">
               <label for="pagetitle">Parent</label>
@@ -81,8 +82,9 @@
           </div>
 
           <div class="will-create panel">
-            <p class="balanced subtle oblique"><small>New resource ‘Ik hou van MODX” will be created using the <a href="#">Base Template</a> within the <a href="#">shop context</a> and be hosted at <code>shop.mysite.com/hats</code></small></p>
+            <p class="balanced subtle oblique"><small>New resource ‘Ik hou van MODX’ will be created using the <a href="#" tabindex="-1">Base Template</a> within the <a href="#" tabindex="-1">shop context</a> and be hosted at <code>shop.mysite.com/hats</code></small></p>
           </div>
+
           <div hidden class="panel" data-dependent="modWeblink" data-exempt="modResource modSymblink moreGallery">
             <label for="pagetitle">Weblink</label>
             <input type="text" id="weblink" name="weblink" list="weblink-list" placeholder="[[~1]]" />
@@ -97,95 +99,88 @@
               </select>
             </datalist>
           </div>
-          <div class="template panel" data-exempt="modWeblink">
-            <div class="flexible template-container">
-              <div class="template-column">
-                <label for="template">Choose a Template</label>
-
-                <div class="template-chooser">
-                  <details open>
-                    <summary>Uncategorized</summary>
-                    <fieldset>
-                      <legend class="visually-hidden">Uncategorized</legend>
-                      <div>
-                        <label for="template-base-template"><input checked type="radio" id="template-base-template" name="template" data-preview="https://modx.com">&ensp;Base Template</label>
-                      </div>
-                    </fieldset>
-                  </details>
-                  <details open>
-                    <summary>Blog</summary>
-                    <fieldset>
-                      <legend class="visually-hidden">Blog</legend>
-                      <div>
-                        <label for="template-post"><input type="radio" name="template" id="template-post" data-preview="https://modx.com/blog/evolution-cms-has-a-new-home">&ensp;Post</label>
-                        <label for="template-category"><input type="radio" name="template" id="template-category" data-preview="https://modx.com/blog/">&ensp;Category</label>
-                      </div>
-
-                      <details>
-                        <summary>Feed</summary>
-                        <fieldset>
-                          <legend class="visually-hidden"><span class="visuallyhidden">Feed</span></legend>
-                          <div>
-                            <label for="template-feed"><input type="radio" name="template" id="template-feed" data-preview="https://modx.com">&ensp;RSS</label>
-                          </div>
-                        </fieldset>
-                      </details>
-                    </fieldset>
-                  </details>
+          <div id="stage">
+            <div class="label panel">
+              <label for="template">Choose a Template</label>
+              <div class="flexible preview-options">
+                <div class="flexible left">
+                  <div hidden class="template-select-wrapper">
+                    <select id="template-select" name="template-select">
+                      <optgroup label="Uncategorized">
+                        <option value="1">Base Template</option>
+                      </optgroup>
+                      <optgroup label="Blog">
+                        <option value="2">Post</option>
+                        <option value="3">Category</option>
+                      </optgroup>
+                      <optgroup label=" - Feed">
+                        <option value="4">RSS</option>
+                      </optgroup>
+                    </select>
+                  </div>
+                  <!--label for="toggle-column"> <input type="checkbox" id="toggle-column" name="toggle-column">&ensp;Sidebar</label-->
                 </div>
-
-
-
-                <select hidden name="choose_template" id="choose_template">
-                  <optgroup label="Blog">
-                    <option value="post">Category</option>
-                    <option value="post">Post</option>
-                  </optgroup>
-                </select>
-
-
-                <!--nav hidden id="template-tree" class="template-chooser">
-                  <details>
-                    <summary><span>Blog</span></summary>
-                    <ul>
-                      <li>
-                        <span>Post</span>
-                      </li>
-                      <li>
-                        <span>Category</span>
-                      </li>
-                    </ul>
-                  </details>
-                  <details>
-                    <summary><span>Webshop</span></summary>
-                    <ul>
-                      <li>
-                        <details>
-                          <summary><span>Commerce</span></summary>
-                          <ul>
-                            <li>
-                              <span>Product</span>
-                            </li>
-                          </ul>
-                        </details>
-                      </li>
-                    </ul>
-                  </details>
-                </nav-->
+                <!--label for="preview-template"><input type="checkbox" checked id="preview-template" name="preview-template">&ensp;Template Preview</label-->
+                <label for="fullscreen-preview"><input type="checkbox" id="fullscreen-preview" name="fullscreen-preview">&ensp;Fullscreen Preview</label>
               </div>
-              <aside id="stage">
-                <div class="flexible preview-options">
-                  <label for="preview-template"><input type="checkbox" checked id="preview-template" name="preview-template"> Template Preview</label>
-                  <label for="fullscreen-preview"><input type="checkbox" id="fullscreen-preview" name="fullscreen-preview"> Fullscreen Preview</label>
+            </div>
+            <div class="flexible template-container" data-exempt="modWeblink">
+              <div class="template-column">
+                <div>
+                  <div id="template-chooser" class="template-chooser">
+                    <details open>
+                      <summary>Uncategorized</summary>
+                      <fieldset>
+                        <legend class="visually-hidden">Uncategorized</legend>
+                        <div>
+                          <label for="template-base-template"><input checked type="radio" id="template-base-template" name="template" data-preview="https://modx.com" data-template="1">&ensp;Base Template</label>
+                        </div>
+                      </fieldset>
+                    </details>
+                    <details open>
+                      <summary>Blog</summary>
+                      <fieldset>
+                        <legend class="visually-hidden">Blog</legend>
+                        <div>
+                          <label for="template-post"><input type="radio" name="template" id="template-post" data-preview="https://modx.com/blog/evolution-cms-has-a-new-home" data-template="2">&ensp;Post</label>
+                          <label for="template-category"><input type="radio" name="template" id="template-category" data-preview="https://modx.com/blog/" data-template="3">&ensp;Category</label>
+                        </div>
+
+                        <details>
+                          <summary>Feed</summary>
+                          <fieldset>
+                            <legend class="visually-hidden"><span class="visuallyhidden">Feed</span></legend>
+                            <div>
+                              <label for="template-feed"><input type="radio" name="template" id="template-feed" data-preview="https://modx.com" data-template="4">&ensp;RSS</label>
+                            </div>
+                          </fieldset>
+                        </details>
+                      </fieldset>
+                    </details>
+                  </div>
+
+
+
+                  <select hidden name="choose_template" id="choose_template">
+                    <optgroup label="Blog">
+                      <option value="post">Category</option>
+                      <option value="post">Post</option>
+                    </optgroup>
+                  </select>
+
                 </div>
+
+
+              </div>
+              <aside>
                 <iframe aria-hidden="true" hidden id="template-preview" src="https://modx.com/" frameborder="0">
                 </iframe>
               </aside>
             </div>
-          </div>
-          <div class="flexible panel">
+          </div><!-- end #stage -->
+          <footer>
             <fieldset class="take-me">
-              <legend>Take Me to</legend>
+              <legend>Take me to</legend>
               <div>
                 <label for="take-me-to-edit">
                   <input checked type="radio" id="take-me-to-edit" name="take-me-to">&ensp;
@@ -198,7 +193,7 @@
               </div>
             </fieldset>
             <div class="classkey">
-              <label for="classkey">Document Type</label>
+              <label for="classkey">Resource Type</label>
               <select name="classkey" id="classkey">
                 <option value="modResource">modResource</option>
                 <option value="modWeblink">modWeblink</option>
@@ -206,10 +201,10 @@
                 <option value="moreGallery">moreGallery</option>
               </select>
             </div>
-          </div>
-          <footer>
-          <button id="choose-template" disabled aria-describedby="pagetitle">Save Resource<span class="visually-hidden" data-bind="pagetitle" data-prepend=" "></span></button>
-          <!--button id="" disabled aria-describedby="pagetitle">Save Resource and Create New</button-->
+            <div>
+              <button id="choose-template" disabled aria-describedby="pagetitle">Save Resource<span class="visually-hidden" data-bind="pagetitle" data-prepend=" "></span></button>
+            </div>
+            <!--button id="" disabled aria-describedby="pagetitle">Save Resource and Create New</button-->
           </footer>
         </main>
 
