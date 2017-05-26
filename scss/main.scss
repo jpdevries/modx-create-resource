@@ -385,6 +385,12 @@ summary {
 
 aside {
   padding-right: 1rem;
+  @media not (prefers-reduced-motion) {
+    iframe {
+      transition: all 360ms ease;
+    }
+  }
+
 }
 
 .classkey {
@@ -454,6 +460,10 @@ footer {
   aside {
     width: 100vw;
     padding: 0;
+    background: rgb(240, 240, 240);
+    &[data-preview-as="mobile"], &[data-preview-as="tablet"] {
+      border-top: 1px solid rgb(220, 220, 220);
+    }
   }
   .template-column {
     display: none;
@@ -492,6 +502,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+
     &[data-preview-as="mobile"] {
       iframe {
         width: 320px;

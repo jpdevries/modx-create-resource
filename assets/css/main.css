@@ -614,6 +614,9 @@ summary span {
 
 aside {
   padding-right: 1rem; }
+  @media (prefers-reduced-motion) {
+    aside iframe {
+      transition: all 360ms ease; } }
 
 .classkey {
   margin-left: auto;
@@ -669,7 +672,10 @@ footer button {
       margin-right: 1em; }
   :-webkit-full-screen aside {
     width: 100vw;
-    padding: 0; }
+    padding: 0;
+    background: #f0f0f0; }
+    :-webkit-full-screen aside[data-preview-as="mobile"], :-webkit-full-screen aside[data-preview-as="tablet"] {
+      border-top: 1px solid gainsboro; }
   :-webkit-full-screen .template-column {
     display: none; }
   :-webkit-full-screen label[for="toggle-column"] {
@@ -734,7 +740,10 @@ footer button {
       margin-right: 1em; }
   :-moz-full-screen aside {
     width: 100vw;
-    padding: 0; }
+    padding: 0;
+    background: #f0f0f0; }
+    :-moz-full-screen aside[data-preview-as="mobile"], :-moz-full-screen aside[data-preview-as="tablet"] {
+      border-top: 1px solid gainsboro; }
   :-moz-full-screen .template-column {
     display: none; }
   :-moz-full-screen label[for="toggle-column"] {
@@ -799,7 +808,10 @@ footer button {
       margin-right: 1em; }
   :-ms-fullscreen aside {
     width: 100vw;
-    padding: 0; }
+    padding: 0;
+    background: #f0f0f0; }
+    :-ms-fullscreen aside[data-preview-as="mobile"], :-ms-fullscreen aside[data-preview-as="tablet"] {
+      border-top: 1px solid gainsboro; }
   :-ms-fullscreen .template-column {
     display: none; }
   :-ms-fullscreen label[for="toggle-column"] {
@@ -865,7 +877,10 @@ footer button {
       margin-right: 1em; }
   :full-screen aside {
     width: 100vw;
-    padding: 0; }
+    padding: 0;
+    background: #f0f0f0; }
+    :full-screen aside[data-preview-as="mobile"], :full-screen aside[data-preview-as="tablet"] {
+      border-top: 1px solid gainsboro; }
   :full-screen .template-column {
     display: none; }
   :full-screen label[for="toggle-column"] {
@@ -931,7 +946,10 @@ footer button {
       margin-right: 1em; }
   :fullscreen aside {
     width: 100vw;
-    padding: 0; }
+    padding: 0;
+    background: #f0f0f0; }
+    :fullscreen aside[data-preview-as="mobile"], :fullscreen aside[data-preview-as="tablet"] {
+      border-top: 1px solid gainsboro; }
   :fullscreen .template-column {
     display: none; }
   :fullscreen label[for="toggle-column"] {
