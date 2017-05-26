@@ -24,6 +24,7 @@ This concept originated at the [MODX Malta Meetup](https://github.com/Sterc/modx
      - Edit This
      - Create New
   - Set Resource Type
+  - Responsive Preview (would probably be an Extra)
   
 ## Screencast
 [Watch the screencast](https://vimeo.com/219024629) (3min).
@@ -34,3 +35,9 @@ This concept originated at the [MODX Malta Meetup](https://github.com/Sterc/modx
 ![](http://j4p.us/07090B3f3Y2r/FullSizeRender-(1).jpg)
 
 ![](http://j4p.us/0G3Z2c0o0f14/FullSizeRender.jpg)
+
+### Responsive Preview
+![](http://j4p.us/333c1m1n151l/Screen%20Shot%202017-05-27%20at%201.07.17%20AM.png)
+
+![](http://j4p.us/3q0g2k3m050q/Screen%20Shot%202017-05-27%20at%201.07.24%20AM.png)
+
