@@ -614,9 +614,8 @@ summary span {
 
 aside {
   padding-right: 1rem; }
-  @media (prefers-reduced-motion) {
-    aside iframe {
-      transition: all 360ms ease; } }
+  aside iframe {
+    transition: all 360ms ease; }
 
 .classkey {
   margin-left: auto;

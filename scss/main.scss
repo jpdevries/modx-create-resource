@@ -385,10 +385,13 @@ summary {
 
 aside {
   padding-right: 1rem;
+  
   @media not (prefers-reduced-motion) {
-    iframe {
-      transition: all 360ms ease;
-    }
+
+  }
+
+  iframe {
+    transition: all 360ms ease;
   }
 
 }
