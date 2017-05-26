@@ -102,6 +102,10 @@
           <div id="stage">
             <div class="label panel">
               <label for="template">Choose a Template</label>
+
+
+
+
               <div class="flexible preview-options">
                 <div class="flexible left">
                   <div hidden class="template-select-wrapper">
@@ -120,9 +124,48 @@
                   </div>
                   <!--label for="toggle-column"> <input type="checkbox" id="toggle-column" name="toggle-column">&ensp;Sidebar</label-->
                 </div>
+
+                <div id="rpm">
+                  <div class="preview-as">
+                    <span aria-hidden="true">Preview as:</span>
+                    <fieldset>
+                      <legend class="visually-hidden">Preview as</legend>
+                      <div class="flexible">
+                        <label for="rpm-desktop">
+                          <input checked type="radio" id="rpm-desktop" name="rpm-preview-as" data-preview-as="desktop">&ensp;Desktop
+                        </label>
+                        <label for="rpm-mobile">
+                          <input type="radio" id="rpm-mobile" name="rpm-preview-as" data-preview-as="mobile">&ensp;Mobile
+                        </label>
+                        <label for="rpm-tablet">
+                          <input type="radio" id="rpm-tablet" name="rpm-preview-as" data-preview-as="tablet">&ensp;Tablet
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div>
+
+                  <div hidden class="orientation preview-as">
+                    <span aria-hidden="true">Orientation:</span>
+                    <fieldset>
+                      <legend class="visually-hidden">Orientation</legend>
+                      <div class="flexible">
+                        <label for="rpm-portrait">
+                          <input checked type="radio" id="rpm-portrait" name="rpm-orientation" data-preview-as="portrait">&ensp;Portrait
+                        </label>
+                        <label for="rpm-landscape">
+                          <input type="radio" id="rpm-landscape" name="rpm-orientation" data-preview-as="landscape">&ensp;Landscape
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div>
+
+                </div>
+
                 <!--label for="preview-template"><input type="checkbox" checked id="preview-template" name="preview-template">&ensp;Template Preview</label-->
                 <label for="fullscreen-preview"><input type="checkbox" id="fullscreen-preview" name="fullscreen-preview">&ensp;Fullscreen Preview</label>
               </div>
+
+
             </div>
             <div class="flexible template-container" data-exempt="modWeblink">
               <div class="template-column">
@@ -172,7 +215,7 @@
 
 
               </div>
-              <aside>
+              <aside data-preview-as="mobile" data-orientation="portrait">
                 <iframe aria-hidden="true" hidden id="template-preview" src="https://modx.com/" frameborder="0">
                 </iframe>
               </aside>
@@ -184,11 +227,11 @@
               <div>
                 <label for="take-me-to-edit">
                   <input checked type="radio" id="take-me-to-edit" name="take-me-to">&ensp;
-                  Edit <span aria-hidden="true" style="text-transform: capitalize">this </span><span class="visually-hidden" data-bind="pagetitle"><span class="visually-hidden"> Resource</span></span>
+                  Edit <!--span aria-hidden="true" style="text-transform: capitalize">this </span--><span class="visually-hidden" data-bind="pagetitle"><span class="visually-hidden"> Resource</span></span>
                 </label>
                 <label for="take-me-to-create">
                   <input type="radio" id="take-me-to-create" name="take-me-to">&ensp;
-                  Create New<span class="visually-hidden"> Resource</span>
+                  Create Another<span class="visually-hidden"> Resource</span>
                 </label>
               </div>
             </fieldset>

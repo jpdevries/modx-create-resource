@@ -87,6 +87,35 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   }
 
+  const previewAsNodes = document.querySelectorAll('.preview-as');
+  for(let i = 0; i < previewAsNodes.length; i++) {
+    const previewAs = previewAsNodes[i];
+    previewAs.addEventListener('change', (event) => {
+      if(event.target.dataset.previewAs) {
+
+        console.log(event.target.dataset.previewAs);
+        switch(event.target.dataset.previewAs) {
+          case 'desktop':
+          document.querySelector('.orientation').setAttribute('hidden', true);
+          document.querySelector('aside').dataset.previewAs = event.target.dataset.previewAs;
+          break;
+
+          case 'landscape':
+          case 'portrait':
+          document.querySelector('aside').dataset.orientation = event.target.dataset.previewAs;
+          break;
+
+          default:
+          document.querySelector('aside').dataset.previewAs = event.target.dataset.previewAs;
+          document.querySelector('.orientation').removeAttribute('hidden');
+          break;
+        }
+      }
+    });
+  }
+
+
+
   document.getElementById('parent-input').addEventListener('change', handleParentChange);
   document.getElementById('parent-input').addEventListener('input', handleParentChange);
 

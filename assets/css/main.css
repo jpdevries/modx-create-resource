@@ -612,6 +612,9 @@ label[for="preview-template"] {
 summary span {
   color: var(--light-color, #787878); }
 
+aside {
+  padding-right: 1rem; }
+
 .classkey {
   margin-left: auto;
   transform: translateY(0.5em);
@@ -638,6 +641,9 @@ footer button {
   display: grid;
   grid-template-rows: min-content auto; }
 
+#rpm {
+  display: none; }
+
 :-webkit-full-screen {
   position: absolute;
   top: 0;
@@ -657,14 +663,51 @@ footer button {
     right: 0;
     bottom: 0;
     padding-top: .5rem; }
+  :-webkit-full-screen .label.panel {
+    grid-template-columns: max-content auto; }
+    :-webkit-full-screen .label.panel label[for="template"] {
+      margin-right: 1em; }
   :-webkit-full-screen aside {
-    width: 100vw; }
+    width: 100vw;
+    padding: 0; }
   :-webkit-full-screen .template-column {
     display: none; }
   :-webkit-full-screen label[for="toggle-column"] {
     display: none; }
   :-webkit-full-screen .template-select-wrapper {
     display: inline-block !important; }
+  :-webkit-full-screen #rpm {
+    display: flex;
+    align-items: center;
+    margin-right: auto; }
+    :-webkit-full-screen #rpm > *:not([hidden]) {
+      display: flex;
+      align-items: center; }
+    :-webkit-full-screen #rpm fieldset {
+      padding: 0 .5rem;
+      border: none; }
+      :-webkit-full-screen #rpm fieldset label {
+        margin-bottom: 0; }
+        :-webkit-full-screen #rpm fieldset label:not(:last-child) {
+          margin-right: 1em; }
+  :-webkit-full-screen .flexible.preview-options .left {
+    flex-grow: 0; }
+  :-webkit-full-screen aside {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    :-webkit-full-screen aside[data-preview-as="mobile"] iframe {
+      width: 320px;
+      height: 480px; }
+    :-webkit-full-screen aside[data-preview-as="mobile"][data-orientation="landscape"] iframe {
+      width: 480px;
+      height: 320px; }
+    :-webkit-full-screen aside[data-preview-as="tablet"] iframe {
+      width: 768px;
+      height: 1024px; }
+    :-webkit-full-screen aside[data-preview-as="tablet"][data-orientation="landscape"] iframe {
+      width: 1024px;
+      height: 768px; }
 
 :-moz-full-screen {
   position: absolute;
@@ -685,14 +728,51 @@ footer button {
     right: 0;
     bottom: 0;
     padding-top: .5rem; }
+  :-moz-full-screen .label.panel {
+    grid-template-columns: max-content auto; }
+    :-moz-full-screen .label.panel label[for="template"] {
+      margin-right: 1em; }
   :-moz-full-screen aside {
-    width: 100vw; }
+    width: 100vw;
+    padding: 0; }
   :-moz-full-screen .template-column {
     display: none; }
   :-moz-full-screen label[for="toggle-column"] {
     display: none; }
   :-moz-full-screen .template-select-wrapper {
     display: inline-block !important; }
+  :-moz-full-screen #rpm {
+    display: flex;
+    align-items: center;
+    margin-right: auto; }
+    :-moz-full-screen #rpm > *:not([hidden]) {
+      display: flex;
+      align-items: center; }
+    :-moz-full-screen #rpm fieldset {
+      padding: 0 .5rem;
+      border: none; }
+      :-moz-full-screen #rpm fieldset label {
+        margin-bottom: 0; }
+        :-moz-full-screen #rpm fieldset label:not(:last-child) {
+          margin-right: 1em; }
+  :-moz-full-screen .flexible.preview-options .left {
+    flex-grow: 0; }
+  :-moz-full-screen aside {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    :-moz-full-screen aside[data-preview-as="mobile"] iframe {
+      width: 320px;
+      height: 480px; }
+    :-moz-full-screen aside[data-preview-as="mobile"][data-orientation="landscape"] iframe {
+      width: 480px;
+      height: 320px; }
+    :-moz-full-screen aside[data-preview-as="tablet"] iframe {
+      width: 768px;
+      height: 1024px; }
+    :-moz-full-screen aside[data-preview-as="tablet"][data-orientation="landscape"] iframe {
+      width: 1024px;
+      height: 768px; }
 
 :-ms-fullscreen {
   position: absolute;
@@ -713,14 +793,51 @@ footer button {
     right: 0;
     bottom: 0;
     padding-top: .5rem; }
+  :-ms-fullscreen .label.panel {
+    grid-template-columns: max-content auto; }
+    :-ms-fullscreen .label.panel label[for="template"] {
+      margin-right: 1em; }
   :-ms-fullscreen aside {
-    width: 100vw; }
+    width: 100vw;
+    padding: 0; }
   :-ms-fullscreen .template-column {
     display: none; }
   :-ms-fullscreen label[for="toggle-column"] {
     display: none; }
   :-ms-fullscreen .template-select-wrapper {
     display: inline-block !important; }
+  :-ms-fullscreen #rpm {
+    display: flex;
+    align-items: center;
+    margin-right: auto; }
+    :-ms-fullscreen #rpm > *:not([hidden]) {
+      display: flex;
+      align-items: center; }
+    :-ms-fullscreen #rpm fieldset {
+      padding: 0 .5rem;
+      border: none; }
+      :-ms-fullscreen #rpm fieldset label {
+        margin-bottom: 0; }
+        :-ms-fullscreen #rpm fieldset label:not(:last-child) {
+          margin-right: 1em; }
+  :-ms-fullscreen .flexible.preview-options .left {
+    flex-grow: 0; }
+  :-ms-fullscreen aside {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    :-ms-fullscreen aside[data-preview-as="mobile"] iframe {
+      width: 320px;
+      height: 480px; }
+    :-ms-fullscreen aside[data-preview-as="mobile"][data-orientation="landscape"] iframe {
+      width: 480px;
+      height: 320px; }
+    :-ms-fullscreen aside[data-preview-as="tablet"] iframe {
+      width: 768px;
+      height: 1024px; }
+    :-ms-fullscreen aside[data-preview-as="tablet"][data-orientation="landscape"] iframe {
+      width: 1024px;
+      height: 768px; }
 
 :full-screen {
   /*pre-spec */
@@ -742,14 +859,51 @@ footer button {
     right: 0;
     bottom: 0;
     padding-top: .5rem; }
+  :full-screen .label.panel {
+    grid-template-columns: max-content auto; }
+    :full-screen .label.panel label[for="template"] {
+      margin-right: 1em; }
   :full-screen aside {
-    width: 100vw; }
+    width: 100vw;
+    padding: 0; }
   :full-screen .template-column {
     display: none; }
   :full-screen label[for="toggle-column"] {
     display: none; }
   :full-screen .template-select-wrapper {
     display: inline-block !important; }
+  :full-screen #rpm {
+    display: flex;
+    align-items: center;
+    margin-right: auto; }
+    :full-screen #rpm > *:not([hidden]) {
+      display: flex;
+      align-items: center; }
+    :full-screen #rpm fieldset {
+      padding: 0 .5rem;
+      border: none; }
+      :full-screen #rpm fieldset label {
+        margin-bottom: 0; }
+        :full-screen #rpm fieldset label:not(:last-child) {
+          margin-right: 1em; }
+  :full-screen .flexible.preview-options .left {
+    flex-grow: 0; }
+  :full-screen aside {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    :full-screen aside[data-preview-as="mobile"] iframe {
+      width: 320px;
+      height: 480px; }
+    :full-screen aside[data-preview-as="mobile"][data-orientation="landscape"] iframe {
+      width: 480px;
+      height: 320px; }
+    :full-screen aside[data-preview-as="tablet"] iframe {
+      width: 768px;
+      height: 1024px; }
+    :full-screen aside[data-preview-as="tablet"][data-orientation="landscape"] iframe {
+      width: 1024px;
+      height: 768px; }
 
 :fullscreen {
   /* spec */
@@ -771,14 +925,51 @@ footer button {
     right: 0;
     bottom: 0;
     padding-top: .5rem; }
+  :fullscreen .label.panel {
+    grid-template-columns: max-content auto; }
+    :fullscreen .label.panel label[for="template"] {
+      margin-right: 1em; }
   :fullscreen aside {
-    width: 100vw; }
+    width: 100vw;
+    padding: 0; }
   :fullscreen .template-column {
     display: none; }
   :fullscreen label[for="toggle-column"] {
     display: none; }
   :fullscreen .template-select-wrapper {
     display: inline-block !important; }
+  :fullscreen #rpm {
+    display: flex;
+    align-items: center;
+    margin-right: auto; }
+    :fullscreen #rpm > *:not([hidden]) {
+      display: flex;
+      align-items: center; }
+    :fullscreen #rpm fieldset {
+      padding: 0 .5rem;
+      border: none; }
+      :fullscreen #rpm fieldset label {
+        margin-bottom: 0; }
+        :fullscreen #rpm fieldset label:not(:last-child) {
+          margin-right: 1em; }
+  :fullscreen .flexible.preview-options .left {
+    flex-grow: 0; }
+  :fullscreen aside {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    :fullscreen aside[data-preview-as="mobile"] iframe {
+      width: 320px;
+      height: 480px; }
+    :fullscreen aside[data-preview-as="mobile"][data-orientation="landscape"] iframe {
+      width: 480px;
+      height: 320px; }
+    :fullscreen aside[data-preview-as="tablet"] iframe {
+      width: 768px;
+      height: 1024px; }
+    :fullscreen aside[data-preview-as="tablet"][data-orientation="landscape"] iframe {
+      width: 1024px;
+      height: 768px; }
 
 [data-template-preview="false"] label[for="fullscreen-preview"] {
   display: none; }
